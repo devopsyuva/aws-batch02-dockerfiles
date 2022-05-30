@@ -27,7 +27,7 @@ pipeline {
         stage{'ECR Image Scan'} {
             steps {
                 script {
-                    trivy image jenkins-ubuntu-nginx:latest || exit 0
+                    sh 'trivy image jenkins-ubuntu-nginx:latest || exit 0'
                 }
             }
         }
