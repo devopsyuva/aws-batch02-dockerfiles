@@ -27,7 +27,7 @@ pipeline {
         stage('ECR Image Scan') {
             steps {
                 script {
-                    sh 'trivy image jenkins-ubuntu-nginx:latest || exit 0'
+                    sh 'trivy image --severity CRITICAL,HIGH --exit-code=1 jenkins-ubuntu-nginx:latest'
                 }
             }
         }
